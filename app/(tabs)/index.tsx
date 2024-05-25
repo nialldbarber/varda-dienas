@@ -6,8 +6,10 @@ import { FlashList } from "@shopify/flash-list";
 import { format } from "date-fns";
 import { CloseCircle } from "iconsax-react-native";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { TextInput, View } from "react-native";
+import { FlatList, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+export const LATVIAN_RED = "#A4343A";
 
 type VarduSaraksts =
 	| {
@@ -18,12 +20,28 @@ type VarduSaraksts =
 	| string;
 
 const varduSaraksts = dati.varduSaraksts;
+const months = [
+	"Janvāris",
+	"Februāris",
+	"Marts",
+	"Aprīlis",
+	"Maijs",
+	"Jūnijs",
+	"Jūlijs",
+	"Augusts",
+	"Septembris",
+	"Oktobris",
+	"Novembris",
+	"Decembris",
+] as const;
+type Month = (typeof months)[number];
 
 export default function Index() {
 	const flashListRef = useRef<FlashList<VarduSaraksts>>(null);
 	const [searchName, setSearchName] = useState("");
 	const [filteredData, setFilteredData] =
 		useState<VarduSaraksts[]>(varduSaraksts);
+	const [highlightedMonth, setHighlightedMonth] = useState("");
 
 	const shouldShowCross = searchName.length > 0;
 
@@ -31,8 +49,6 @@ export default function Index() {
 		const today = new Date();
 		const currentDay = format(today, "dd");
 		const currentMonth = format(today, "MM");
-
-		console.log("effect running");
 
 		let currentIndex = varduSaraksts.findIndex((item, index) => {
 			if (typeof item === "string" && item === currentMonth) {
@@ -57,7 +73,6 @@ export default function Index() {
 		}
 
 		if (flashListRef.current && currentIndex !== -1) {
-			console.log("scrolling to index");
 			flashListRef.current.scrollToIndex({ index: currentIndex });
 		}
 	}, []);
@@ -116,6 +131,24 @@ export default function Index() {
 		})
 		.filter((item) => item !== null) as number[];
 
+	const handleViewableItemsChanged = useCallback(
+		({ viewableItems }: { viewableItems }) => {
+			const firstViewableItem = viewableItems[0];
+			if (firstViewableItem && typeof firstViewableItem.item === "string") {
+				setHighlightedMonth(firstViewableItem.item);
+			}
+		},
+		[],
+	);
+
+	const handleMonthPress = (month: Month) => {
+		const index = filteredData.findIndex((item) => item === month);
+
+		if (index !== -1 && flashListRef.current) {
+			flashListRef.current.scrollToIndex({ index });
+		}
+	};
+
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
 			<ScreenHeader>Vārda Dienas</ScreenHeader>
@@ -125,7 +158,7 @@ export default function Index() {
 					className="bg-gray-200 rounded-xl p-4 mx-3 mt-5 mb-2"
 					onChangeText={handleSearchVardi}
 					placeholder="Meklēt vārdu"
-					selectionColor="#A4343A"
+					selectionColor={LATVIAN_RED}
 				/>
 				{shouldShowCross ? (
 					<Pressable
@@ -133,7 +166,7 @@ export default function Index() {
 						className="absolute right-5 top-[26px]"
 						onPress={handleClearSearchAndRepopluateData}
 					>
-						<CloseCircle size="28" color="#A4343A" variant="Bold" />
+						<CloseCircle size="28" color={LATVIAN_RED} variant="Bold" />
 					</Pressable>
 				) : null}
 			</View>
@@ -170,15 +203,26 @@ export default function Index() {
 									<View className="flex flex-row flex-wrap">
 										{item?.vardi.map((name, index) => {
 											const lastIndex = index === item?.vardi.length - 1;
+											const isNameSearchValue =
+												name.toLowerCase() === searchName.toLowerCase();
 											return (
-												<Text
+												<View
 													key={`vardi-${index}`}
-													className="p-1"
-													weight="bold"
+													style={{
+														borderWidth: 2,
+														borderStyle: "solid",
+														borderRadius: 5,
+														borderColor:
+															isNameSearchValue && searchName.length > 3
+																? LATVIAN_RED
+																: "transparent",
+													}}
 												>
-													{name}
-													{lastIndex ? "" : ", "}
-												</Text>
+													<Text className="p-1" weight="bold">
+														{name}
+														{lastIndex ? "" : ", "}
+													</Text>
+												</View>
 											);
 										})}
 									</View>
@@ -187,10 +231,17 @@ export default function Index() {
 									<View className="flex flex-row flex-wrap">
 										{item?.citiVardi.map((otherName, index) => {
 											const lastIndex = index === item?.vardi.length - 1;
+											const isNameSearchValue =
+												otherName.toLowerCase() === searchName.toLowerCase();
 											return (
 												<Text
 													key={`citiVardi-${index}`}
 													className="p-1"
+													style={{
+														backgroundColor: isNameSearchValue
+															? LATVIAN_RED
+															: "transparent",
+													}}
 													weight="medium"
 												>
 													{otherName}
@@ -208,8 +259,36 @@ export default function Index() {
 					}}
 					stickyHeaderIndices={stickyHeaderIndices}
 					estimatedItemSize={100}
+					onViewableItemsChanged={handleViewableItemsChanged}
 				/>
 			)}
+			<View className="absolute bottom-0 left-0 right-0 bg-white p-2">
+				<FlatList
+					horizontal
+					data={months}
+					showsHorizontalScrollIndicator={false}
+					renderItem={({ item }) => {
+						const isActive = item === highlightedMonth;
+						return (
+							<Pressable
+								onPress={() => handleMonthPress(item)}
+								className="flex-1 items-center justify-center"
+								accessibilityLabel="Mēnesis"
+							>
+								<Text
+									className={`p-2 ${
+										isActive ? "text-latvianRed" : "text-black"
+									}`}
+									weight="bold"
+								>
+									{item}
+								</Text>
+							</Pressable>
+						);
+					}}
+					keyExtractor={(item) => item}
+				/>
+			</View>
 		</SafeAreaView>
 	);
 }

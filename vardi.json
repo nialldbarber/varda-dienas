@@ -2131,6 +2131,1157 @@
 				"Lilja",
 				"Lillija"
 			]
+		},
+		"Maijs",
+		{
+			"diena": "01",
+			"vardi": ["Ziedonis"],
+			"citiVardi": [
+				"Izanda",
+				"Izaura",
+				"Jalmars",
+				"Jūtvaldis",
+				"Kuzma",
+				"Ziednese",
+				"Ziedons",
+				"Ziedvalda"
+			]
+		},
+		{
+			"diena": "02",
+			"vardi": ["Zigmunds", "Sigmunds", "Zigismunds"],
+			"citiVardi": [
+				"Jaroslava",
+				"Jaroslavs",
+				"Jeroslavs",
+				"Jurate",
+				"Jurāte",
+				"Jūris",
+				"Sigismunds",
+				"Sigizmunds",
+				"Sigunds",
+				"Zigis",
+				"Zigizmunds",
+				"Zigmans",
+				"Zigmants",
+				"Zigmonds",
+				"Zigmonts",
+				"Zigmunda",
+				"Zigmunts"
+			]
+		},
+		{
+			"diena": "03",
+			"vardi": ["Gints", "Uvis"],
+			"citiVardi": [
+				"Gintis",
+				"Ģints",
+				"Jella",
+				"Jermolajs",
+				"Juvents",
+				"Juvita"
+			]
+		},
+		{
+			"diena": "04",
+			"vardi": ["Vizbulīte", "Viola", "Vijolīte"],
+			"citiVardi": [
+				"Kaido",
+				"Violanda",
+				"Violanta",
+				"Violenta",
+				"Vizbule",
+				"Vizbulis"
+			]
+		},
+		{
+			"diena": "05",
+			"vardi": ["Ģirts", "Ģederts"],
+			"citiVardi": [
+				"Kaliksts",
+				"Kalins",
+				"Keisija",
+				"Keits",
+				"Omars",
+				"Omārs",
+				"Otars",
+				"Otārs",
+				"Rahmats",
+				"Raksana",
+				"Rašids"
+			]
+		},
+		{
+			"diena": "06",
+			"vardi": ["Gaidis", "Didzis"],
+			"citiVardi": [
+				"Dereks",
+				"Didrihs",
+				"Didriķis",
+				"Didžus",
+				"Dīters",
+				"Gaidonis",
+				"Gaidvars"
+			]
+		},
+		{
+			"diena": "07",
+			"vardi": ["Henriete", "Henrijs", "Jete", "Enriko"],
+			"citiVardi": [
+				"Anriete",
+				"Domicela",
+				"Domicele",
+				"Domicelija",
+				"Domicella",
+				"Donicela",
+				"Ennrike",
+				"Enrija",
+				"Enrijs",
+				"Enrika",
+				"Enriketa",
+				"Enriks",
+				"Genrieta",
+				"Henrieta",
+				"Henrija",
+				"Henrita",
+				"Jeta"
+			]
+		},
+		{
+			"diena": "08",
+			"vardi": ["Staņislavs", "Staņislava", "Stefānija"],
+			"citiVardi": [
+				"Kasandra",
+				"Stanislava",
+				"Stanislavs",
+				"Stase",
+				"Stasija",
+				"Stasis",
+				"Stasja",
+				"Stass",
+				"Stefanida",
+				"Stefanīda",
+				"Stefanija",
+				"Stefi",
+				"Steisija",
+				"Stepanida",
+				"Stepanīda",
+				"Stepanija",
+				"Stepānija"
+			]
+		},
+		{
+			"diena": "09",
+			"vardi": ["Klāvs", "Einārs", "Ervīns"],
+			"citiVardi": [
+				"Eina",
+				"Einards",
+				"Einars",
+				"Einarts",
+				"Einis",
+				"Eino",
+				"Ervids",
+				"Ervijs",
+				"Ervils",
+				"Ervīna",
+				"Ervins",
+				"Ervis",
+				"Ervita",
+				"Glafira",
+				"Glafīra",
+				"Kevins",
+				"Klaidis",
+				"Klaids",
+				"Klāss",
+				"Timiāna",
+				"Timo",
+				"Timofejs",
+				"Timotejs",
+				"Tims"
+			]
+		},
+		{
+			"diena": "10",
+			"vardi": ["Maija", "Paija"],
+			"citiVardi": [
+				"Keila",
+				"Keitlīna",
+				"Kelija",
+				"Kelina",
+				"Kellija",
+				"Kenets",
+				"Kestutis",
+				"Ketlina",
+				"Ketlīna",
+				"Ķestutis",
+				"Ķēstutis",
+				"Meja"
+			]
+		},
+		{
+			"diena": "11",
+			"vardi": ["Milda", "Karmena", "Manfreds"],
+			"citiVardi": [
+				"Karmene",
+				"Kilikeja",
+				"Kima",
+				"Kimberlija",
+				"Kims",
+				"Manfrēds",
+				"Mildreda"
+			]
+		},
+		{
+			"diena": "12",
+			"vardi": ["Valija", "Ināra", "Ina", "Inārs"],
+			"citiVardi": [
+				"Anāra",
+				"Anars",
+				"Anārs",
+				"Īna",
+				"Inaida",
+				"Inara",
+				"Inārija",
+				"Inārijs",
+				"Inars",
+				"Inarta",
+				"Inarts",
+				"Inatra",
+				"Inija",
+				"Inna",
+				"Innara",
+				"Ino",
+				"Valijs",
+				"Vallija"
+			]
+		},
+		{
+			"diena": "13",
+			"vardi": ["Irēna", "Irīna", "Ira", "Iraīda"],
+			"citiVardi": [
+				"Airina",
+				"Airīna",
+				"Arina",
+				"Arīna",
+				"Arins",
+				"Arīns",
+				"Arions",
+				"Eirana",
+				"Īra",
+				"Iraida",
+				"Iraidis",
+				"Iranda",
+				"Irena",
+				"Irene",
+				"Irēne",
+				"Irenejs",
+				"Irenijs",
+				"Irēnijs",
+				"Irija",
+				"Īrija",
+				"Irina",
+				"Irinejs",
+				"Ironijs"
+			]
+		},
+		{
+			"diena": "14",
+			"vardi": ["Krišjānis", "Elfa", "Aivita", "Elvita"],
+			"citiVardi": ["Elfija", "Kristjans", "Kristjānis", "Krišjāns"]
+		},
+		{
+			"diena": "15",
+			"vardi": ["Sofija", "Taiga", "Airita", "Arita"],
+			"citiVardi": [
+				"Airīte",
+				"Airlenda",
+				"Airtons",
+				"Gļebs",
+				"Safija",
+				"Sofja",
+				"Sonāte",
+				"Sonija",
+				"Sonita",
+				"Soņa",
+				"Volga",
+				"Zofija",
+				"Zosja"
+			]
+		},
+		{
+			"diena": "16",
+			"vardi": ["Edvīns", "Edijs"],
+			"citiVardi": [
+				"Edija",
+				"Ediks",
+				"Edis",
+				"Edvija",
+				"Edvijs",
+				"Edvīna",
+				"Edvīne",
+				"Edvins",
+				"Kleofa",
+				"Kleopatra",
+				"Kleotilda",
+				"Klodija",
+				"Klods",
+				"Klotilde"
+			]
+		},
+		{
+			"diena": "17",
+			"vardi": ["Herberts", "Dailis", "Umberts"],
+			"citiVardi": [
+				"Dailonis",
+				"Dailons",
+				"Deila",
+				"Deils",
+				"Deja",
+				"Erberts",
+				"Erhards",
+				"Koleta",
+				"Uma"
+			]
+		},
+		{
+			"diena": "18",
+			"vardi": ["Inese", "Inesis", "Ēriks"],
+			"citiVardi": [
+				"Erihs",
+				"Ērihs",
+				"Eriks",
+				"Ero",
+				"Ēro",
+				"Ignese",
+				"Inesa",
+				"Inesīte",
+				"Konsuela",
+				"Konsuella",
+				"Kreigs"
+			]
+		},
+		{
+			"diena": "19",
+			"vardi": ["Lita", "Sibilla", "Teika"],
+			"citiVardi": [
+				"Ksaverija",
+				"Ksavērija",
+				"Ksaverijs",
+				"Ksavērijs",
+				"Ksavers"
+			]
+		},
+		{
+			"diena": "20",
+			"vardi": ["Venta", "Salvis", "Selva"],
+			"citiVardi": [
+				"Fadejs",
+				"Lada",
+				"Ladislavs",
+				"Laira",
+				"Lala",
+				"Salvija",
+				"Salvijs",
+				"Salvo",
+				"Selvijs",
+				"Selvins",
+				"Selvis",
+				"Solvis",
+				"Tadeušs"
+			]
+		},
+		{
+			"diena": "21",
+			"vardi": ["Ernestīne", "Ingmārs", "Akvelīna"],
+			"citiVardi": [
+				"Akilina",
+				"Akulina",
+				"Akuļina",
+				"Akvelina",
+				"Akvilina",
+				"Akvilīna",
+				"Avelina",
+				"Avelīna",
+				"Erneste",
+				"Ernestina",
+				"Ernestīna",
+				"Ernestine",
+				"Ingemāra",
+				"Ingemars",
+				"Ingemārs",
+				"Ingmāra",
+				"Ingmars",
+				"Ingomars",
+				"Inmārs"
+			]
+		},
+		{
+			"diena": "22",
+			"vardi": [
+				"Emīlija",
+				"Visu neparasto un kalendāros neierakstīto vārdu diena"
+			],
+			"citiVardi": [
+				"Ahmads",
+				"Ahmeds",
+				"Airats",
+				"Ali",
+				"Alija",
+				"Džamila",
+				"Emiliana",
+				"Emilija",
+				"Emilijana",
+				"Emīlja",
+				"Emiljana",
+				"Farhads",
+				"Farida",
+				"Farids",
+				"Fatima",
+				"Fatina",
+				"Fatma",
+				"Gaidars",
+				"Gulnara",
+				"Guļnara",
+				"Horens",
+				"Indira",
+				"Indīra",
+				"Ismails",
+				"Kālebs",
+				"Karima",
+				"Karims",
+				"Mehribana",
+				"Murads",
+				"Muslims",
+				"Osmars"
+			]
+		},
+		{
+			"diena": "23",
+			"vardi": ["Leontīne", "Leokādija", "Lonija", "Ligija"],
+			"citiVardi": [
+				"Leokadija",
+				"Leontija",
+				"Leontijs",
+				"Leontina",
+				"Leontīna",
+				"Leontine",
+				"Leontins",
+				"Leontīns",
+				"Levantīna",
+				"Līgija",
+				"Ligindra",
+				"Lone",
+				"Lonita",
+				"Lonnija",
+				"Lontīne",
+				"Ļoņa"
+			]
+		},
+		{
+			"diena": "24",
+			"vardi": ["Ilvija", "Marlēna", "Ziedone"],
+			"citiVardi": ["Kurbads", "Kurbats", "Marlena", "Marlens", "Ziedonija"]
+		},
+		{
+			"diena": "25",
+			"vardi": ["Anšlavs", "Junora"],
+			"citiVardi": [
+				"Andzelms",
+				"Anselms",
+				"Anzelma",
+				"Anzelms",
+				"Juna",
+				"Jūnija",
+				"Jūnijs",
+				"Junita",
+				"Junona",
+				"Junta",
+				"Krīvs"
+			]
+		},
+		{
+			"diena": "26",
+			"vardi": ["Edvards", "Edvarts", "Eduards", "Varis"],
+			"citiVardi": [
+				"Eduarda",
+				"Eduārds",
+				"Eduars",
+				"Edvarda",
+				"Edvārts",
+				"Eidis",
+				"Ezra",
+				"Tailers",
+				"Tedijs",
+				"Tedis",
+				"Varaidotis",
+				"Varaidots",
+				"Varimands",
+				"Varimants",
+				"Varita",
+				"Varīte",
+				"Varonis"
+			]
+		},
+		{
+			"diena": "27",
+			"vardi": ["Dzidra", "Gunita", "Loreta", "Dzidris"],
+			"citiVardi": [
+				"Aglikerija",
+				"Dzidrīte",
+				"Glikerija",
+				"Guneta",
+				"Gunitra",
+				"Laurēna",
+				"Lora",
+				"Lorands",
+				"Loransa",
+				"Loreina",
+				"Lorena",
+				"Lorēna",
+				"Lorens",
+				"Lorensa",
+				"Lorenss",
+				"Lorenta",
+				"Lorete",
+				"Lorija",
+				"Lorijs",
+				"Lorika",
+				"Lorina",
+				"Lorīna",
+				"Lorita"
+			]
+		},
+		{
+			"diena": "28",
+			"vardi": ["Vilis", "Vilhelms"],
+			"citiVardi": [
+				"Langina",
+				"Lengina",
+				"Leongina",
+				"Leongīna",
+				"Leongīne",
+				"Leongins",
+				"Leongīns",
+				"Logina",
+				"Longina",
+				"Longīna",
+				"Longins",
+				"Longīns",
+				"Vilārs",
+				"Vilberts",
+				"Vilens",
+				"Vilhelmins",
+				"Vilhelmīns",
+				"Vilijs",
+				"Viljams",
+				"Villems",
+				"Villijs",
+				"Viļa",
+				"Viļums",
+				"Viļus"
+			]
+		},
+		{
+			"diena": "29",
+			"vardi": ["Maksis", "Maksims", "Raivis", "Raivo"],
+			"citiVardi": [
+				"Lakija",
+				"Lara",
+				"Largija",
+				"Larija",
+				"Larijs",
+				"Larina",
+				"Larions",
+				"Laris",
+				"Maksimilians",
+				"Maksimiliāns",
+				"Maksimiljans",
+				"Makss",
+				"Raiva",
+				"Raivita"
+			]
+		},
+		{
+			"diena": "30",
+			"vardi": ["Vitolds", "Lolita", "Letīcija"],
+			"citiVardi": [
+				"Jevdokija",
+				"Lalita",
+				"Lea",
+				"Leāna",
+				"Leāra",
+				"Leida",
+				"Leila",
+				"Leticija",
+				"Levijs",
+				"Levita",
+				"Logita",
+				"Lola",
+				"Lolija",
+				"Lollija",
+				"Vitolda",
+				"Vitols",
+				"Vītols"
+			]
+		},
+		{
+			"diena": "31",
+			"vardi": ["Alīda", "Jūsma"],
+			"citiVardi": [
+				"Alida",
+				"Alide",
+				"Alīde",
+				"Alidija",
+				"Alīdija",
+				"Alis",
+				"Amīda",
+				"Elīda",
+				"Faina",
+				"Jūsmiņš",
+				"Lendija",
+				"Petronela",
+				"Petronele",
+				"Petronelija",
+				"Petronella",
+				"Petronellija",
+				"Petroneļa",
+				"Petrunela",
+				"Petrunele",
+				"Petrunelija",
+				"Petruneļa"
+			]
+		},
+		"Jūnijs",
+		{
+			"diena": "01",
+			"vardi": ["Biruta", "Mairita", "Bernedīne"],
+			"citiVardi": [
+				"Bernadina",
+				"Bernadīne",
+				"Birute",
+				"Leolita",
+				"Liāra",
+				"Liards",
+				"Mairīta",
+				"Mairīte",
+				"Mairuta",
+				"Nikodems",
+				"Nikodēms",
+				"Nikodims"
+			]
+		},
+		{
+			"diena": "02",
+			"vardi": ["Lība", "Emma"],
+			"citiVardi": [
+				"Eimija",
+				"Ema",
+				"Emija",
+				"Emilda",
+				"Emima",
+				"Emīna",
+				"Emme",
+				"Emmija",
+				"Liberata",
+				"Liberijs",
+				"Liona",
+				"Lioneta",
+				"Lionija"
+			]
+		},
+		{
+			"diena": "03",
+			"vardi": ["Inta", "Ineta", "Intra"],
+			"citiVardi": ["Inete", "Innneta", "Inota", "Lipija", "Lira", "Līrija"]
+		},
+		{
+			"diena": "04",
+			"vardi": ["Elfrīda", "Sintija", "Sindija"],
+			"citiVardi": [
+				"Cera",
+				"Cerība",
+				"Ceronis",
+				"Cerons",
+				"Elfrīda",
+				"Elfrīde",
+				"Elfrīds",
+				"Sinda",
+				"Sindijs",
+				"Sindra",
+				"Sinita",
+				"Sinta",
+				"Sinti",
+				"Sintijs",
+				"Taive",
+				"Taivo",
+				"Toivo",
+				"Zinda",
+				"Zindra",
+				"Zinija"
+			]
+		},
+		{
+			"diena": "05",
+			"vardi": ["Igors", "Margots", "Ingvars"],
+			"citiVardi": [
+				"Argija",
+				"Argils",
+				"Argita",
+				"Argo",
+				"Argods",
+				"Argons",
+				"Argots",
+				"Argunda",
+				"Arguts",
+				"Bonifacija",
+				"Bonifācija",
+				"Bonifacijs",
+				"Bonifācijs",
+				"Bonifatijs",
+				"Bonifātijs",
+				"Bonifats",
+				"Inguards",
+				"Ingvards",
+				"Ingvilda",
+				"Ingvilds",
+				"Igars",
+				"Jegors",
+				"Margonis",
+				"Margons",
+				"Margota",
+				"Margote",
+				"Marguss",
+				"Marguta",
+				"Marguts"
+			]
+		},
+		{
+			"diena": "06",
+			"vardi": ["Ingrīda", "Ardis"],
+			"citiVardi": [
+				"Ardijs",
+				"Ards",
+				"Ingra",
+				"Ingre",
+				"Ingreta",
+				"Ingrida",
+				"Ingrita",
+				"Kandida",
+				"Kendija",
+				"Kendisa",
+				"Loida"
+			]
+		},
+		{
+			"diena": "07",
+			"vardi": ["Gaida", "Arnis", "Arno"],
+			"citiVardi": [
+				"Arne",
+				"Arnela",
+				"Arnijs",
+				"Arons",
+				"Ārons",
+				"Gaidīte",
+				"Loveta",
+				"Luana",
+				"Luāna",
+				"Luāra",
+				"Lueta",
+				"Lugra",
+				"Lukrecija",
+				"Lukrēcija"
+			]
+		},
+		{
+			"diena": "08",
+			"vardi": ["Frīdis", "Frīda", "Mundra"],
+			"citiVardi": [
+				"Frida",
+				"Fridberts",
+				"Fridis",
+				"Munda",
+				"Mundis",
+				"Mundris",
+				"Mundrīte",
+				"Salamons",
+				"Salimona",
+				"Salimonija",
+				"Salimons",
+				"Salome",
+				"Salomeja",
+				"Salomija",
+				"Salomons",
+				"Solomeja",
+				"Solomija",
+				"Solomonija",
+				"Solomons",
+				"Solumeja",
+				"Šalome",
+				"Zalamans",
+				"Zālamans",
+				"Zalamons"
+			]
+		},
+		{
+			"diena": "09",
+			"vardi": ["Ligita", "Gita"],
+			"citiVardi": ["Gitana", "Gitāna", "Gitija", "Gits", "Ļeda", "Ļudgarda"]
+		},
+		{
+			"diena": "10",
+			"vardi": ["Malva", "Anatols", "Anatolijs"],
+			"citiVardi": ["Anata", "Anatolija", "Mafalda", "Mazalda"]
+		},
+		{
+			"diena": "11",
+			"vardi": ["Ingus", "Mairis", "Vidvuds"],
+			"citiVardi": [
+				"Engus",
+				"Inguss",
+				"Mairolds",
+				"Mairs",
+				"Makrina",
+				"Mamerts",
+				"Videvuds",
+				"Videvuts",
+				"Vidis",
+				"Vido",
+				"Vidulis",
+				"Vidvars",
+				"Vidvuts"
+			]
+		},
+		{
+			"diena": "12",
+			"vardi": ["Nora", "Lenora", "Ija"],
+			"citiVardi": [
+				"Īģe",
+				"Manda",
+				"Norgita",
+				"Norika",
+				"Noriņa",
+				"Noris",
+				"Norīte",
+				"Norītis",
+				"Norvalda",
+				"Nurja"
+			]
+		},
+		{
+			"diena": "13",
+			"vardi": ["Zigfrīds", "Ainārs", "Uva"],
+			"citiVardi": [
+				"Aināra",
+				"Ainards",
+				"Ainars",
+				"Ūva",
+				"Uve",
+				"Ūve",
+				"Zigfrids"
+			]
+		},
+		{
+			"diena": "14",
+			"vardi": ["Tija", "Saiva", "Sentis", "Santis", "Saivis"],
+			"citiVardi": [
+				"Saiga",
+				"Saigits",
+				"Saija",
+				"Saila",
+				"Sailensa",
+				"Sailita",
+				"Saira",
+				"Sairis",
+				"Sairita",
+				"Sairuss",
+				"Santijs",
+				"Santo",
+				"Santoss"
+			]
+		},
+		{
+			"diena": "15",
+			"vardi": ["Baņuta", "Žermēna", "Vilija", "Vits"],
+			"citiVardi": [
+				"Maranda",
+				"Maranta",
+				"Marats",
+				"Marenda",
+				"Moda",
+				"Modesta",
+				"Modests",
+				"Modis",
+				"Vila",
+				"Vilenta",
+				"Vilita",
+				"Vilja",
+				"Viljanta",
+				"Villija",
+				"Vitis",
+				"Vito",
+				"Vitus",
+				"Žermena"
+			]
+		},
+		{
+			"diena": "16",
+			"vardi": ["Justīne", "Juta"],
+			"citiVardi": [
+				"Džastina",
+				"Džastīne",
+				"Džastins",
+				"Justa",
+				"Justina",
+				"Justīna",
+				"Justine",
+				"Justīnija",
+				"Marsela",
+				"Marseljēza",
+				"Marsella",
+				"Marsels",
+				"Ustinija",
+				"Ustiņja"
+			]
+		},
+		{
+			"diena": "17",
+			"vardi": ["Artūrs", "Artis"],
+			"citiVardi": [
+				"Arčijs",
+				"Ārčijs",
+				"Arčils",
+				"Arsenijs",
+				"Arsēnijs",
+				"Arsens",
+				"Arsēns",
+				"Arsentijs",
+				"Artijs",
+				"Artiks",
+				"Arts",
+				"Arturs",
+				"Artuss",
+				"Mečeslavs",
+				"Mečislava",
+				"Mečislavs",
+				"Palmira",
+				"Palmīra",
+				"Paloma",
+				"Pamela"
+			]
+		},
+		{
+			"diena": "18",
+			"vardi": ["Alberts", "Madis"],
+			"citiVardi": [
+				"Adalberta",
+				"Adalberts",
+				"Alberta",
+				"Edelberts",
+				"Edilberts",
+				"Merseda",
+				"Mersēda",
+				"Mersedesa",
+				"Mervils"
+			]
+		},
+		{
+			"diena": "19",
+			"vardi": ["Viktors", "Nils"],
+			"citiVardi": [
+				"Mila",
+				"Mīla",
+				"Milana",
+				"Milāna",
+				"Milānija",
+				"Milans",
+				"Milāns",
+				"Mīle",
+				"Milena",
+				"Milēna",
+				"Milēnija",
+				"Milona",
+				"Milvards",
+				"Milvars",
+				"Milvija",
+				"Napoleons",
+				"Nila",
+				"Nilija",
+				"Nīls",
+				"Nilss",
+				"Niluta",
+				"Vikijs",
+				"Viktorijs",
+				"Vitors"
+			]
+		},
+		{
+			"diena": "20",
+			"vardi": ["Rasma", "Rasa", "Maira"],
+			"citiVardi": [
+				"Maila",
+				"Maima",
+				"Maina",
+				"Mairina",
+				"Mimoza",
+				"Molija",
+				"Mollija",
+				"Mora",
+				"Morēna",
+				"Morgane",
+				"Rasita",
+				"Rasmīte",
+				"Rasulīte"
+			]
+		},
+		{
+			"diena": "21",
+			"vardi": ["Emīls", "Egita", "Monvīds"],
+			"citiVardi": [
+				"Ahto",
+				"Egīna",
+				"Egīns",
+				"Egits",
+				"Emilians",
+				"Emilijans",
+				"Emīlijs",
+				"Emilis",
+				"Emīlis",
+				"Emiljans",
+				"Emils",
+				"Jemeļjans",
+				"Monrita",
+				"Monvida",
+				"Monvids"
+			]
+		},
+		{
+			"diena": "22",
+			"vardi": ["Ludmila", "Laimdots", "Laimiņš"],
+			"citiVardi": [
+				"Bogdana",
+				"Bogdans",
+				"Bogumila",
+				"Laimdotis",
+				"Ludmilla",
+				"Lūlija"
+			]
+		},
+		{
+			"diena": "23",
+			"vardi": ["Līga"],
+			"citiVardi": ["Līgonis", "Līgotnis"]
+		},
+		{
+			"diena": "24",
+			"vardi": ["Jānis"],
+			"citiVardi": []
+		},
+		{
+			"diena": "25",
+			"vardi": ["Milija", "Maiga"],
+			"citiVardi": [
+				"Maida",
+				"Maigone",
+				"Mia",
+				"Mija",
+				"Milica",
+				"Milita",
+				"Mille",
+				"Millija"
+			]
+		},
+		{
+			"diena": "26",
+			"vardi": ["Ausma", "Inguna", "Ingūna", "Inguns", "Ausmis"],
+			"citiVardi": [
+				"Ingunda",
+				"Ingūns",
+				"Ingura",
+				"Ingūra",
+				"Ingurds",
+				"Ingurs",
+				"Inguta",
+				"Muza",
+				"Mūza",
+				"Naidžels"
+			]
+		},
+		{
+			"diena": "27",
+			"vardi": ["Malvīne", "Malvis"],
+			"citiVardi": [
+				"Jelisejs",
+				"Jeļisejs",
+				"Malvina",
+				"Malvīna",
+				"Malvine",
+				"Naila",
+				"Naina",
+				"Naira",
+				"Nansija",
+				"Naomi",
+				"Nensija"
+			]
+		},
+		{
+			"diena": "28",
+			"vardi": ["Viesturs", "Kitija", "Viestards"],
+			"citiVardi": [
+				"Klitija",
+				"Narcise",
+				"Narciss",
+				"Narciza",
+				"Nargisa",
+				"Nargiza",
+				"Vestards",
+				"Viestars",
+				"Viestarts",
+				"Viesturis",
+				"Vieturs"
+			]
+		},
+		{
+			"diena": "29",
+			"vardi": ["Pēteris", "Pāvils", "Pauls", "Paulis"],
+			"citiVardi": [
+				"Narajana",
+				"Nareks",
+				"Narija",
+				"Nārija",
+				"Narimans",
+				"Narimants",
+				"Narine",
+				"Narinē",
+				"Pavels",
+				"Pāvels",
+				"Pavils",
+				"Pāvuls",
+				"Peta",
+				"Pēters",
+				"Petra",
+				"Petro",
+				"Petrs",
+				"Piters",
+				"Pīters",
+				"Pits",
+				"Pjotrs",
+				"Pola",
+				"Pols",
+				"Povils"
+			]
+		},
+		{
+			"diena": "30",
+			"vardi": ["Tālivaldis", "Mareks"],
+			"citiVardi": [
+				"Mareka",
+				"Mereks",
+				"Savelijs",
+				"Savēlijs",
+				"Tālivalda",
+				"Tālivalds",
+				"Tālvaldis"
+			]
 		}
 	]
 }
