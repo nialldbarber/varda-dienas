@@ -1,34 +1,44 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Tabs } from "expo-router";
+import { Calendar, Home, Setting2, Star } from "iconsax-react-native";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
+      screenOptions={{ tabBarActiveTintColor: "#A4343A", headerShown: false }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+          title: "Home",
+          tabBarIcon: ({ color }) => (
+            <Home size="30" variant="Bold" color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="calendar"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+          title: "Calendar",
+          tabBarIcon: ({ color }) => (
+            <Calendar size="30" variant="Bold" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="favourites"
+        options={{
+          title: "Favourites",
+          tabBarIcon: ({ color }) => (
+            <Star size="30" variant="Bold" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: "Settings",
+          tabBarIcon: ({ color }) => (
+            <Setting2 size="30" variant="Bold" color={color} />
           ),
         }}
       />

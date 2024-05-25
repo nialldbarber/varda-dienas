@@ -1,70 +1,215 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Pressable } from "@/components/pressable";
+import { ScreenHeader } from "@/components/screen-header";
+import { Text } from "@/components/text";
+import dati from "@/vardi.json";
+import { FlashList } from "@shopify/flash-list";
+import { format } from "date-fns";
+import { CloseCircle } from "iconsax-react-native";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { TextInput, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+type VarduSaraksts =
+	| {
+			diena: string;
+			vardi: string[];
+			citiVardi: string[];
+	  }
+	| string;
 
-export default function HomeScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
+const varduSaraksts = dati.varduSaraksts;
+
+export default function Index() {
+	const flashListRef = useRef<FlashList<VarduSaraksts>>(null);
+	const [searchName, setSearchName] = useState("");
+	const [filteredData, setFilteredData] =
+		useState<VarduSaraksts[]>(varduSaraksts);
+
+	const shouldShowCross = searchName.length > 0;
+
+	useEffect(() => {
+		const today = new Date();
+		const currentDay = format(today, "dd");
+		const currentMonth = format(today, "MM");
+
+		console.log("effect running");
+
+		let currentIndex = varduSaraksts.findIndex((item, index) => {
+			if (typeof item === "string" && item === currentMonth) {
+				return varduSaraksts
+					.slice(index + 1)
+					.some(
+						(subItem) =>
+							typeof subItem === "object" && subItem.diena === currentDay,
+					);
+			}
+			return false;
+		});
+
+		if (currentIndex !== -1) {
+			currentIndex +=
+				varduSaraksts
+					.slice(currentIndex + 1)
+					.findIndex(
+						(subItem) =>
+							typeof subItem === "object" && subItem.diena === currentDay,
+					) + 1;
+		}
+
+		if (flashListRef.current && currentIndex !== -1) {
+			console.log("scrolling to index");
+			flashListRef.current.scrollToIndex({ index: currentIndex });
+		}
+	}, []);
+
+	const handleSearchVardi = useCallback((text: string) => {
+		setSearchName(text);
+
+		if (text.trim() === "") {
+			setFilteredData(varduSaraksts);
+		} else {
+			const lowercasedFilter = text.toLowerCase();
+			const filteredList: VarduSaraksts[] = [];
+			let currentMonth: string | null = null;
+			let monthHasMatch = false;
+
+			for (const item of varduSaraksts) {
+				if (typeof item === "string") {
+					if (monthHasMatch) {
+						monthHasMatch = false;
+					}
+					currentMonth = item;
+				} else if (
+					currentMonth &&
+					(item.vardi.some((name) =>
+						name.toLowerCase().includes(lowercasedFilter),
+					) ||
+						item.citiVardi.some((name) =>
+							name.toLowerCase().includes(lowercasedFilter),
+						))
+				) {
+					if (!monthHasMatch) {
+						filteredList.push(currentMonth);
+						monthHasMatch = true;
+					}
+					filteredList.push(item);
+				}
+			}
+
+			setFilteredData(filteredList);
+		}
+	}, []);
+
+	const handleClearSearchAndRepopluateData = () => {
+		setSearchName("");
+		setFilteredData(varduSaraksts);
+	};
+
+	const noNamesFound = filteredData.length === 0;
+
+	const stickyHeaderIndices = varduSaraksts
+		.map((item, index) => {
+			if (typeof item === "string") {
+				return index;
+			}
+			return null;
+		})
+		.filter((item) => item !== null) as number[];
+
+	return (
+		<SafeAreaView style={{ flex: 1 }}>
+			<ScreenHeader>Vārda Dienas</ScreenHeader>
+			<View className="relative pb-3 h-[80px]">
+				<TextInput
+					value={searchName}
+					className="bg-gray-200 rounded-xl p-4 mx-3 mt-5 mb-2"
+					onChangeText={handleSearchVardi}
+					placeholder="Meklēt vārdu"
+					selectionColor="#A4343A"
+				/>
+				{shouldShowCross ? (
+					<Pressable
+						accessibilityLabel="Notīrīt meklēšanu"
+						className="absolute right-5 top-[26px]"
+						onPress={handleClearSearchAndRepopluateData}
+					>
+						<CloseCircle size="28" color="#A4343A" variant="Bold" />
+					</Pressable>
+				) : null}
+			</View>
+			{noNamesFound ? (
+				<View className="pt-10 items-center justify-center">
+					<Text withEmoji className="text-latvianRed text-xl" weight="bold">
+						Vārds nav atrasts 🫣
+					</Text>
+				</View>
+			) : (
+				<FlashList
+					ref={flashListRef}
+					data={filteredData}
+					showsVerticalScrollIndicator={false}
+					renderItem={({ item }) => {
+						if (typeof item === "string") {
+							return (
+								<View className="bg-latvianRed">
+									<Text className="p-4 text-2xl text-white" weight="extrabold">
+										{item}
+									</Text>
+								</View>
+							);
+						}
+						return (
+							<View className="p-4">
+								<Text
+									className="text-latvianRed pb-2 text-xl"
+									weight="extrabold"
+								>
+									{item?.diena}
+								</Text>
+								<View>
+									<View className="flex flex-row flex-wrap">
+										{item?.vardi.map((name, index) => {
+											const lastIndex = index === item?.vardi.length - 1;
+											return (
+												<Text
+													key={`vardi-${index}`}
+													className="p-1"
+													weight="bold"
+												>
+													{name}
+													{lastIndex ? "" : ", "}
+												</Text>
+											);
+										})}
+									</View>
+								</View>
+								<View>
+									<View className="flex flex-row flex-wrap">
+										{item?.citiVardi.map((otherName, index) => {
+											const lastIndex = index === item?.vardi.length - 1;
+											return (
+												<Text
+													key={`citiVardi-${index}`}
+													className="p-1"
+													weight="medium"
+												>
+													{otherName}
+													{lastIndex ? "" : ", "}
+												</Text>
+											);
+										})}
+									</View>
+								</View>
+							</View>
+						);
+					}}
+					getItemType={(item) => {
+						return typeof item === "string" ? "sectionHeader" : "row";
+					}}
+					stickyHeaderIndices={stickyHeaderIndices}
+					estimatedItemSize={100}
+				/>
+			)}
+		</SafeAreaView>
+	);
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});

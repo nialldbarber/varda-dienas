@@ -1,37 +1,25 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
+import "./global.css";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  let [fontsLoaded, fontError] = useFonts({
+    "Cosmica-Bold": require("../assets/fonts/Cosmica-Bold.ttf"),
+    "Cosmica-Extrabold": require("../assets/fonts/Cosmica-Extrabold.ttf"),
+    "Cosmica-Heavy": require("../assets/fonts/Cosmica-Heavy.ttf"),
+    "Cosmica-Light": require("../assets/fonts/Cosmica-Light.ttf"),
+    "Cosmica-Medium": require("../assets/fonts/Cosmica-Medium.ttf"),
+    "Cosmica-Regular": require("../assets/fonts/Cosmica-Regular.ttf"),
+    "Cosmica-Semibold": require("../assets/fonts/Cosmica-Semibold.ttf"),
   });
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
+  if (!fontsLoaded && !fontError) {
     return null;
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    </Stack>
   );
 }
