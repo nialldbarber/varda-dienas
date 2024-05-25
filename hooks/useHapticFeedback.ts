@@ -1,9 +1,9 @@
 import * as Haptics from "expo-haptics";
 
-import { state$ } from "@/store";
+import { store$ } from "@/store";
 
 export function useHapticFeedback() {
-	const hapticFeedback = state$.get().hapticFeedback;
+	const hapticFeedback = store$.get().hapticFeedback;
 
 	function invokeHapticFeedback() {
 		if (hapticFeedback) {

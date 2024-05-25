@@ -1,12 +1,12 @@
 import { ScreenHeader } from "@/components/screen-header";
 import { Text } from "@/components/text";
-import { state$ } from "@/store";
+import { store$ } from "@/store";
 import { useSelector } from "@legendapp/state/react";
 import { ScrollView, Switch, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Settings() {
-	const hapticFeedback = useSelector(state$.hapticFeedback);
+	const hapticFeedback = useSelector(store$.hapticFeedback);
 
 	return (
 		<SafeAreaView>
@@ -22,7 +22,7 @@ export default function Settings() {
 						<Switch
 							accessibilityLabel="Pārslēgt haptics"
 							value={hapticFeedback}
-							onValueChange={() => state$.hapticFeedback.set(!hapticFeedback)}
+							onValueChange={(value) => store$.setHapticFeedback(value)}
 						/>
 					</View>
 				</View>
