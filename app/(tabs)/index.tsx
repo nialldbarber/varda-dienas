@@ -4,6 +4,7 @@ import { Text } from "@/components/text";
 import dati from "@/vardi.json";
 import { FlashList } from "@shopify/flash-list";
 import { format } from "date-fns";
+import { Link } from "expo-router";
 import { CloseCircle } from "iconsax-react-native";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FlatList, TextInput, View } from "react-native";
@@ -11,7 +12,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export const LATVIAN_RED = "#A4343A";
 
-type VarduSaraksts =
+export type VarduSaraksts =
 	| {
 			diena: string;
 			vardi: string[];
@@ -192,66 +193,86 @@ export default function Index() {
 							);
 						}
 						return (
-							<View className="p-4">
-								<Text
-									className="text-latvianRed pb-2 text-xl"
-									weight="extrabold"
-								>
-									{item?.diena}
-								</Text>
-								<View>
-									<View className="flex flex-row flex-wrap">
-										{item?.vardi.map((name, index) => {
-											const lastIndex = index === item?.vardi.length - 1;
-											const isNameSearchValue =
-												name.toLowerCase() === searchName.toLowerCase();
-											return (
-												<View
-													key={`vardi-${index}`}
-													style={{
-														borderWidth: 2,
-														borderStyle: "solid",
-														borderRadius: 5,
-														borderColor:
-															isNameSearchValue && searchName.length > 3
-																? LATVIAN_RED
-																: "transparent",
-													}}
-												>
-													<Text className="p-1" weight="bold">
-														{name}
-														{lastIndex ? "" : ", "}
-													</Text>
-												</View>
-											);
-										})}
+							<Link
+								href={{
+									pathname: "/name",
+									params: {
+										vardi: item.vardi,
+										citiVardi: item.citiVardi,
+										diena: item.diena,
+										...{ mēnesis: typeof item === "string" ? item : "" },
+									},
+								}}
+							>
+								<View className="p-4">
+									<Text
+										className="text-latvianRed pb-2 text-xl"
+										weight="extrabold"
+									>
+										{item?.diena}
+									</Text>
+									<View>
+										<View className="flex flex-row flex-wrap">
+											{item?.vardi.map((name, index) => {
+												const lastIndex = index === item?.vardi.length - 1;
+												const isNameSearchValue =
+													name.toLowerCase() === searchName.toLowerCase();
+												return (
+													<View
+														key={`vardi-${index}`}
+														className={`rounded-md ${
+															isNameSearchValue
+																? "bg-latvianRed"
+																: "bg-transparent"
+														}`}
+													>
+														<Text
+															className={`p-1 ${
+																isNameSearchValue
+																	? "text-white"
+																	: "text-latvianRed"
+															}`}
+															weight="bold"
+														>
+															{name}
+															{lastIndex ? "" : ", "}
+														</Text>
+													</View>
+												);
+											})}
+										</View>
+									</View>
+									<View>
+										<View className="flex flex-row flex-wrap">
+											{item?.citiVardi.map((otherName, index) => {
+												const lastIndex = index === item?.vardi.length - 1;
+												const isNameSearchValue =
+													otherName.toLowerCase() === searchName.toLowerCase();
+												return (
+													<View
+														key={`citiVardi-${index}`}
+														className={`rounded-md ${
+															isNameSearchValue
+																? "bg-latvianRed"
+																: "bg-transparent"
+														}`}
+													>
+														<Text
+															className={`p-1 ${
+																isNameSearchValue ? "text-white" : "text-black"
+															}`}
+															weight="medium"
+														>
+															{otherName}
+															{lastIndex ? "" : ", "}
+														</Text>
+													</View>
+												);
+											})}
+										</View>
 									</View>
 								</View>
-								<View>
-									<View className="flex flex-row flex-wrap">
-										{item?.citiVardi.map((otherName, index) => {
-											const lastIndex = index === item?.vardi.length - 1;
-											const isNameSearchValue =
-												otherName.toLowerCase() === searchName.toLowerCase();
-											return (
-												<Text
-													key={`citiVardi-${index}`}
-													className="p-1"
-													style={{
-														backgroundColor: isNameSearchValue
-															? LATVIAN_RED
-															: "transparent",
-													}}
-													weight="medium"
-												>
-													{otherName}
-													{lastIndex ? "" : ", "}
-												</Text>
-											);
-										})}
-									</View>
-								</View>
-							</View>
+							</Link>
 						);
 					}}
 					getItemType={(item) => {

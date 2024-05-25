@@ -9,7 +9,7 @@ export default function TabLayout() {
 			<Tabs.Screen
 				name="index"
 				options={{
-					title: "Home",
+					title: "Mājas",
 					tabBarIcon: ({ color }) => (
 						<Home size="30" variant="Bold" color={color} />
 					),
@@ -18,7 +18,7 @@ export default function TabLayout() {
 			<Tabs.Screen
 				name="favourites"
 				options={{
-					title: "Favourites",
+					title: "Izvēlētie",
 					tabBarIcon: ({ color }) => (
 						<Star size="30" variant="Bold" color={color} />
 					),
@@ -27,7 +27,7 @@ export default function TabLayout() {
 			<Tabs.Screen
 				name="settings"
 				options={{
-					title: "Settings",
+					title: "Iestatījumi",
 					tabBarIcon: ({ color }) => (
 						<Setting2 size="30" variant="Bold" color={color} />
 					),
