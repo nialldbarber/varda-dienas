@@ -79,7 +79,7 @@ export default function Index() {
 		if (flashListRef.current && currentIndex !== -1) {
 			flashListRef.current.scrollToIndex({
 				index: currentIndex,
-				viewOffset: SCROLL_OFFSET,
+				viewOffset: 0,
 			});
 		}
 	}, []);
@@ -147,7 +147,7 @@ export default function Index() {
 		if (index !== -1 && flashListRef.current) {
 			flashListRef.current.scrollToIndex({
 				index,
-				viewOffset: SCROLL_OFFSET,
+				viewOffset: 0,
 			});
 		}
 	};

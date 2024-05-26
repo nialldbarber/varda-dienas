@@ -9,13 +9,16 @@ import Animated from "react-native-reanimated";
 import { useButtonAnimation } from "@/hooks/useButtonAnimation";
 import { useHapticFeedback } from "@/hooks/useHapticFeedback";
 
-const hitSlop = { top: 20, right: 20, bottom: 20, left: 20 };
+const hitSlopSmall = { top: 5, right: 5, bottom: 5, left: 5 };
+const hitSlopMedium = { top: 15, right: 15, bottom: 15, left: 15 };
+const hitSlopLarge = { top: 20, right: 20, bottom: 20, left: 20 };
 
-export interface PressableProps extends NativePressableProps {
+export interface PressableProps extends Omit<NativePressableProps, "hitSlop"> {
 	onPress?: null | ((event?: GestureResponderEvent) => void) | undefined;
 	forceHaptic?: boolean;
 	accessibilityLabel: string;
 	animate?: boolean;
+	hitSlop?: "small" | "medium" | "large";
 }
 
 export function Pressable(props: PressableProps) {
@@ -24,6 +27,7 @@ export function Pressable(props: PressableProps) {
 		forceHaptic = false,
 		accessibilityLabel,
 		animate = false,
+		hitSlop = "small",
 		children,
 		...rest
 	} = props;
@@ -45,6 +49,11 @@ export function Pressable(props: PressableProps) {
 
 	const Container = animate ? Animated.View : Fragment;
 	const styles = animate ? style : undefined;
+	const hitSlopSize = {
+		small: hitSlopSmall,
+		medium: hitSlopMedium,
+		large: hitSlopLarge,
+	};
 
 	return (
 		<Container {...styles}>
@@ -54,7 +63,7 @@ export function Pressable(props: PressableProps) {
 				disabled={props.disabled}
 				onPress={handleOnPress}
 				accessibilityLabel={accessibilityLabel}
-				hitSlop={hitSlop}
+				hitSlop={hitSlopSize[hitSlop]}
 				{...handlePressInOut}
 				{...rest}
 			>

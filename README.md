@@ -9,4 +9,10 @@
 
 [ ] add a name to the RANDOM DAY LIST
 
-[ ] increase hitSlops 
+[x] increase hitSlops 
+
+[ ] fave screen
+
+[ ] settings screen
+
+[ ] scroll to the current day
