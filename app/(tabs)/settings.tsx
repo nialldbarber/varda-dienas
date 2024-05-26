@@ -23,9 +23,7 @@ export default function Settings() {
 						<Switch
 							accessibilityLabel="Pārslēgt haptics"
 							value={hapticFeedback}
-							onValueChange={(value) =>
-								store$.setHapticFeedback(!hapticFeedback)
-							}
+							onValueChange={() => store$.setHapticFeedback(!hapticFeedback)}
 							trackColor={{ false: "#767577", true: LATVIAN_RED }}
 						/>
 					</View>

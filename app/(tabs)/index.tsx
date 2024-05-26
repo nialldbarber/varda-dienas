@@ -5,6 +5,7 @@ import { Text } from "@/components/text";
 import dati from "@/vardi.json";
 import { FlashList } from "@shopify/flash-list";
 import { format } from "date-fns";
+import { BlurView } from "expo-blur";
 import { Link } from "expo-router";
 import { CloseCircle } from "iconsax-react-native";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -153,7 +154,9 @@ export default function Index() {
 
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
-			<ScreenHeader>Vārda Dienas</ScreenHeader>
+			<View className="mt-3">
+				<ScreenHeader>Vārda Dienas</ScreenHeader>
+			</View>
 			<View className="relative pb-3 h-[80px]">
 				<TextInput
 					ref={searchInputRef}
@@ -178,7 +181,7 @@ export default function Index() {
 				data={varduSaraksts}
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={{ paddingBottom: 50 }}
-				renderItem={({ item }) => {
+				renderItem={({ item, index }) => {
 					if (typeof item === "string") {
 						return (
 							<View className="bg-latvianRed">
@@ -188,6 +191,12 @@ export default function Index() {
 							</View>
 						);
 					}
+
+					const currentMonth = varduSaraksts
+						.slice(0, index)
+						.reverse()
+						.find((i) => typeof i === "string") as string;
+
 					return (
 						<Link
 							href={{
@@ -196,7 +205,7 @@ export default function Index() {
 									vardi: item.vardi,
 									citiVardi: item.citiVardi,
 									diena: item.diena,
-									...{ mēnesis: typeof item === "string" ? item : "" },
+									mēnesis: currentMonth,
 								},
 							}}
 						>
@@ -230,7 +239,10 @@ export default function Index() {
 				estimatedItemSize={100}
 				onViewableItemsChanged={handleViewableItemsChanged}
 			/>
-			<View className="absolute bottom-0 left-0 right-0 bg-white p-2">
+			<BlurView
+				intensity={80}
+				className="absolute bottom-0 left-0 right-0 bg-white px-3 py-5 border-t border-gray-200"
+			>
 				<FlatList
 					horizontal
 					data={months}
@@ -244,7 +256,7 @@ export default function Index() {
 								accessibilityLabel="Mēnesis"
 							>
 								<Text
-									className={`p-2 ${
+									className={`py-1 px-4 ${
 										isActive ? "text-latvianRed" : "text-black"
 									}`}
 									weight="bold"
@@ -256,7 +268,7 @@ export default function Index() {
 					}}
 					keyExtractor={(item) => item}
 				/>
-			</View>
+			</BlurView>
 		</SafeAreaView>
 	);
 }

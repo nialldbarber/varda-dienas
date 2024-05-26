@@ -8,20 +8,21 @@ import { configureObservableSync, syncObservable } from "@legendapp/state/sync";
 enableReactComponents();
 enableReactTracking({ auto: true });
 
-type VardaDiena = {
+export type VardaDiena = {
 	vards: string;
-	diena: number;
+	diena?: string;
 	menesis: Month;
+	shouldNotify: boolean;
 };
 
 type State = {
 	hapticFeedback: boolean;
-	vardsUnVardaDiena: VardaDiena[];
+	vardsUnVardaDiena: VardaDiena[]; // a list of names and their respective days
 };
 type Actions = {
 	setHapticFeedback: (hapticFeedback: boolean) => void;
 	addVardsUnVardaDiena: (vardsUnVardaDiena: VardaDiena) => void;
-	removeVardsUnVardaDiena: (vardsUnVardaDiena: VardaDiena) => void;
+	removeVardsUnVardaDiena: (vards: string) => void;
 };
 interface Store extends State, Actions {}
 
@@ -36,11 +37,11 @@ export const store$ = observable<Store>({
 			vardsUnVardaDiena: [...store$.get().vardsUnVardaDiena, vardsUnVardaDiena],
 		});
 	},
-	removeVardsUnVardaDiena: (vardsUnVardaDiena: VardaDiena) => {
+	removeVardsUnVardaDiena: (vards: string) => {
 		store$.assign({
 			vardsUnVardaDiena: store$
 				.get()
-				.vardsUnVardaDiena.filter((v) => v.vards !== vardsUnVardaDiena.vards),
+				.vardsUnVardaDiena.filter((v) => v.vards !== vards),
 		});
 	},
 });

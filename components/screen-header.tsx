@@ -7,7 +7,7 @@ export function ScreenHeader({ children }: PropsWithChildren) {
 	return (
 		<View>
 			<Text
-				className="text-center text-3xl text-latvianRed mt-3"
+				className="text-center text-3xl text-latvianRed"
 				weight="extrabold"
 				withEmoji
 			>
