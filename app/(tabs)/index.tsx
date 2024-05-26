@@ -1,3 +1,4 @@
+import { NosaukumaRinda } from "@/components/nosaukuma-rinda";
 import { Pressable } from "@/components/pressable";
 import { ScreenHeader } from "@/components/screen-header";
 import { Text } from "@/components/text";
@@ -11,6 +12,7 @@ import { FlatList, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export const LATVIAN_RED = "#A4343A";
+const SCROLL_OFFSET = 120;
 
 export type VarduSaraksts =
 	| {
@@ -35,7 +37,7 @@ const months = [
 	"Novembris",
 	"Decembris",
 ] as const;
-type Month = (typeof months)[number];
+export type Month = (typeof months)[number];
 
 export default function Index() {
 	const searchInputRef = useRef<TextInput>(null);
@@ -76,47 +78,43 @@ export default function Index() {
 		if (flashListRef.current && currentIndex !== -1) {
 			flashListRef.current.scrollToIndex({
 				index: currentIndex,
-				viewOffset: 120,
+				viewOffset: SCROLL_OFFSET,
 			});
 		}
 	}, []);
 
-	const handleSearchVardi = useCallback((text: string) => {
+	const handleSearchVardi = (text: string) => {
 		setSearchName(text);
 		setHighlightedName(text);
 
 		if (text.trim() !== "") {
 			const lowercasedFilter = text.toLowerCase();
-			let exactMatchIndex = -1;
 
-			for (let i = 0; i < varduSaraksts.length; i++) {
-				const item = varduSaraksts[i];
+			const exactMatchIndex = varduSaraksts.findIndex((item) => {
 				if (typeof item === "object") {
-					if (
+					return (
 						item.vardi.some(
 							(name) => name.toLowerCase() === lowercasedFilter,
 						) ||
 						item.citiVardi.some(
 							(name) => name.toLowerCase() === lowercasedFilter,
 						)
-					) {
-						exactMatchIndex = i;
-						break;
-					}
+					);
 				}
-			}
+				return false;
+			});
 
 			if (exactMatchIndex !== -1 && flashListRef.current) {
 				flashListRef.current.scrollToIndex({
 					index: exactMatchIndex,
 					viewPosition: 0,
-					viewOffset: 120, // Add top padding here
+					viewOffset: SCROLL_OFFSET,
 				});
 			}
 		} else {
 			setHighlightedName("");
 		}
-	}, []);
+	};
 
 	const handleClearSearchAndRepopulateData = () => {
 		setSearchName("");
@@ -133,7 +131,7 @@ export default function Index() {
 		.filter((item) => item !== null) as number[];
 
 	const handleViewableItemsChanged = useCallback(
-		({ viewableItems }: { viewableItems }) => {
+		({ viewableItems }: { viewableItems: any }) => {
 			const firstViewableItem = viewableItems[0];
 			if (firstViewableItem && typeof firstViewableItem.item === "string") {
 				setHighlightedMonth(firstViewableItem.item);
@@ -146,7 +144,10 @@ export default function Index() {
 		const index = varduSaraksts.findIndex((item) => item === month);
 
 		if (index !== -1 && flashListRef.current) {
-			flashListRef.current.scrollToIndex({ index, viewOffset: 120 });
+			flashListRef.current.scrollToIndex({
+				index,
+				viewOffset: SCROLL_OFFSET,
+			});
 		}
 	};
 
@@ -176,6 +177,7 @@ export default function Index() {
 				ref={flashListRef}
 				data={varduSaraksts}
 				showsVerticalScrollIndicator={false}
+				contentContainerStyle={{ paddingBottom: 50 }}
 				renderItem={({ item }) => {
 					if (typeof item === "string") {
 						return (
@@ -205,67 +207,18 @@ export default function Index() {
 								>
 									{item?.diena}
 								</Text>
-								<View>
-									<View className="flex flex-row flex-wrap">
-										{item?.vardi.map((name, index) => {
-											const lastIndex = index === item?.vardi.length - 1;
-											const isNameSearchValue =
-												name.toLowerCase() === highlightedName.toLowerCase();
-											return (
-												<View
-													key={`vardi-${index}`}
-													className={`rounded-md ${
-														isNameSearchValue
-															? "bg-latvianRed"
-															: "bg-transparent"
-													}`}
-												>
-													<Text
-														className={`p-1 ${
-															isNameSearchValue
-																? "text-white"
-																: "text-latvianRed"
-														}`}
-														weight="bold"
-													>
-														{name}
-														{lastIndex ? "" : ", "}
-													</Text>
-												</View>
-											);
-										})}
-									</View>
-								</View>
-								<View>
-									<View className="flex flex-row flex-wrap">
-										{item?.citiVardi.map((otherName, index) => {
-											const lastIndex = index === item?.citiVardi.length - 1;
-											const isNameSearchValue =
-												otherName.toLowerCase() ===
-												highlightedName.toLowerCase();
-											return (
-												<View
-													key={`citiVardi-${index}`}
-													className={`rounded-md ${
-														isNameSearchValue
-															? "bg-latvianRed"
-															: "bg-transparent"
-													}`}
-												>
-													<Text
-														className={`p-1 ${
-															isNameSearchValue ? "text-white" : "text-black"
-														}`}
-														weight="medium"
-													>
-														{otherName}
-														{lastIndex ? "" : ", "}
-													</Text>
-												</View>
-											);
-										})}
-									</View>
-								</View>
+								<NosaukumaRinda
+									vardaVeids="vardi"
+									item={item}
+									highlightedName={highlightedName}
+									searchName={searchName}
+								/>
+								<NosaukumaRinda
+									vardaVeids="citiVardi"
+									item={item}
+									highlightedName={highlightedName}
+									searchName={searchName}
+								/>
 							</View>
 						</Link>
 					);

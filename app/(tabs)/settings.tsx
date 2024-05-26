@@ -1,3 +1,4 @@
+import { LATVIAN_RED } from "@/app/(tabs)";
 import { ScreenHeader } from "@/components/screen-header";
 import { Text } from "@/components/text";
 import { store$ } from "@/store";
@@ -22,7 +23,10 @@ export default function Settings() {
 						<Switch
 							accessibilityLabel="Pārslēgt haptics"
 							value={hapticFeedback}
-							onValueChange={(value) => store$.setHapticFeedback(value)}
+							onValueChange={(value) =>
+								store$.setHapticFeedback(!hapticFeedback)
+							}
+							trackColor={{ false: "#767577", true: LATVIAN_RED }}
 						/>
 					</View>
 				</View>
