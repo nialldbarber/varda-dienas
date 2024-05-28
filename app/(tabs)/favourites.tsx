@@ -13,12 +13,13 @@ export default function Favourites() {
 			<ScrollView>
 				<View className="flex-1 justify-center items-center">
 					<ScreenHeader>Izvēlētie</ScreenHeader>
-					{listOfNames.map((names) => (
-						<View key={names.vards}>
-							<Text>{names.vards}</Text>
-						</View>
-					))}
-					<View></View>
+					<View className="m-5 bg-gray-200 rounded-lg p-4 w-full">
+						{listOfNames.map((names) => (
+							<View key={names.vards} className="w-full m-5">
+								<Text>{names.vards}</Text>
+							</View>
+						))}
+					</View>
 				</View>
 			</ScrollView>
 		</SafeAreaView>

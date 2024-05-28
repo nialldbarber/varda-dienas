@@ -16,7 +16,7 @@ export default function TabLayout() {
 				options={{
 					title: "Vārdi",
 					tabBarIcon: ({ color }) => (
-						<Home size="30" variant="Bold" color={color} />
+						<Home size="28" variant="Bold" color={color} />
 					),
 				}}
 			/>
@@ -25,7 +25,7 @@ export default function TabLayout() {
 				options={{
 					title: "Izvēlētie",
 					tabBarIcon: ({ color }) => (
-						<Star size="30" variant="Bold" color={color} />
+						<Star size="28" variant="Bold" color={color} />
 					),
 				}}
 			/>
@@ -34,7 +34,7 @@ export default function TabLayout() {
 				options={{
 					title: "Iestatījumi",
 					tabBarIcon: ({ color }) => (
-						<Setting2 size="30" variant="Bold" color={color} />
+						<Setting2 size="28" variant="Bold" color={color} />
 					),
 				}}
 			/>

@@ -19,7 +19,13 @@ export default function RootLayout() {
 
 	return (
 		<Stack>
-			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+			<Stack.Screen
+				name="(tabs)"
+				options={{
+					headerShown: false,
+					contentStyle: { backgroundColor: "rgb(248 250 252)" },
+				}}
+			/>
 			<Stack.Screen
 				name="name"
 				options={{ headerShown: false, presentation: "modal" }}

@@ -18,38 +18,42 @@ export function NosaukumaRinda({
 	highlightedName,
 }: Props) {
 	return (
-		<View className="flex flex-row flex-wrap">
-			{item?.[vardaVeids].map((name, index) => {
-				const lastIndex = index === item?.[vardaVeids].length - 1;
+		<View>
+			<View style={{ flexDirection: "row" }}>
+				{item?.[vardaVeids].map((name, index) => {
+					const lastIndex = index === item?.[vardaVeids].length - 1;
 
-				const isNameSearchValue = () => {
-					if (searchName.length === 0) return false;
-					return name.toLowerCase() === highlightedName.toLowerCase();
-				};
+					const isNameSearchValue = () => {
+						if (searchName.length <= 2) return false;
+						return name.toLowerCase().includes(highlightedName.toLowerCase());
+					};
 
-				return (
-					<View
-						key={`${vardaVeids}-${index}`}
-						className={`rounded-md ${
-							isNameSearchValue() ? "bg-latvianRed" : "bg-transparent"
-						}`}
-					>
-						<Text
-							className={`p-1 ${
+					return (
+						<View
+							key={`${vardaVeids}-${index}`}
+							className={`rounded-md ${
 								isNameSearchValue()
-									? "text-white"
-									: vardaVeids === "vardi"
-										? "text-latvianRed"
-										: "text-gray-700"
+									? "bg-latvianRedFaded border-2 border-latvianRed"
+									: "bg-transparent"
 							}`}
-							weight={item.vardi ? "bold" : "medium"}
 						>
-							{name}
-							{lastIndex ? "" : ", "}
-						</Text>
-					</View>
-				);
-			})}
+							<Text
+								className={`p-1 ${
+									isNameSearchValue()
+										? "text-white"
+										: vardaVeids === "vardi"
+											? "text-latvianRed"
+											: "text-gray-700"
+								}`}
+								weight={vardaVeids === "vardi" ? "bold" : "medium"}
+							>
+								{name}
+								{lastIndex ? "" : ", "}
+							</Text>
+						</View>
+					);
+				})}
+			</View>
 		</View>
 	);
 }

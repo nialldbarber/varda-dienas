@@ -5,10 +5,13 @@ import type { VardaDiena } from "@/store";
 import { store$ } from "@/store";
 import { useSelector } from "@legendapp/state/react";
 import Checkbox from "expo-checkbox";
+import { useNavigation } from "expo-router";
 import { useEffect, useState } from "react";
 import { View } from "react-native";
+import Toast from "react-native-toast-message";
 
 export function SelectRow({ vards, diena, menesis }: Partial<VardaDiena>) {
+	const { navigate } = useNavigation();
 	const listOfNames = useSelector(store$.vardsUnVardaDiena);
 	const [isSelected, setIsSelected] = useState(false);
 
@@ -25,6 +28,16 @@ export function SelectRow({ vards, diena, menesis }: Partial<VardaDiena>) {
 		if (isSelected) {
 			store$.removeVardsUnVardaDiena(vards);
 		} else {
+			Toast.show({
+				type: "success",
+				text1: "Wooo!",
+				text2: `Vārds ${vards} pievienots pie paziņojumiem`,
+				position: "bottom",
+				visibilityTime: 6000,
+				// @ts-ignore
+				onPress: () => navigate("favourites"),
+			});
+
 			store$.addVardsUnVardaDiena({
 				vards,
 				diena,
@@ -38,7 +51,7 @@ export function SelectRow({ vards, diena, menesis }: Partial<VardaDiena>) {
 	return (
 		<Pressable
 			onPress={handleAddNameForNotification}
-			accessibilityLabel="Select name for notification"
+			accessibilityLabel="Izvēlieties vārdu paziņojumam"
 		>
 			<View className="flex-row items-center justify-between py-3 border-t-[1px] border-gray-300">
 				<Text>{vards}</Text>

@@ -17,7 +17,7 @@ export type VardaDiena = {
 
 type State = {
 	hapticFeedback: boolean;
-	vardsUnVardaDiena: VardaDiena[]; // a list of names and their respective days
+	vardsUnVardaDiena: VardaDiena[];
 };
 type Actions = {
 	setHapticFeedback: (hapticFeedback: boolean) => void;
